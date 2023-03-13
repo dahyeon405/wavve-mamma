@@ -1,4 +1,13 @@
 @import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-sky-500 h-12 w-5/6 mx-auto my-5 rounded-lg text-white text-lg font-bold hover:bg-sky-700;
+  }
+}
 
 #app {
   width: 100vw;
