@@ -1,4 +1,4 @@
-import type { IRestaurantData } from '../interface'
+import type { IRestaurantData } from './interface'
 
 const randomPicker = (data: IRestaurantData[]) => {
   const dataLength = data.length
