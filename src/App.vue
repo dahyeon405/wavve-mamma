@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { RouterView } from 'vue-router'
+import { computed, ref } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
+import type { IRestaurantData } from '@/types/interface'
+import { randomPicker } from './utils/randomPicker'
 
 const isLoading = ref(true)
-let data = {}
+let data: IRestaurantData[] = []
+const router = useRouter()
 
 const fetchData = async () => {
   const response = await fetch('http://localhost:3000/restaurants')
@@ -11,16 +14,20 @@ const fetchData = async () => {
 
   data = restaurantData
   isLoading.value = false
-  return data
 }
 
 fetchData()
+
+const moveToNewResultPage = () => {
+  const picked = randomPicker(data)
+  router.push(`/result/${picked.id}`)
+}
 </script>
 
 <template>
   <div class="main-wrapper">
     <div v-if="isLoading">로딩 중...</div>
-    <RouterView v-else :data="data" />
+    <RouterView v-else :data="data" @spinClicked="moveToNewResultPage" />
   </div>
 </template>
 

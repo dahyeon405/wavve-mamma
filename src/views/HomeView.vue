@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import '@/components/Home/SpinButton.vue'
 import SpinButtonVue from '@/components/Home/SpinButton.vue'
-import { randomPicker } from '@/utils/randomPicker'
-import type { IRestaurantData } from '@/utils/interface'
+import type { IRestaurantData } from '@/types/interface'
 import { useRouter } from 'vue-router'
+import CATEGORY from '@/types/const'
 
 const router = useRouter()
+const selectedCategories = [...CATEGORY]
+const emit = defineEmits(['spinClicked'])
 
 const props = defineProps<{
   data: IRestaurantData[]
 }>()
-
-const handleSpinClick = () => {
-  const picked = randomPicker(props.data)
-  router.push(`/result/${picked.id}`)
-}
 </script>
 
 <template>
@@ -23,7 +20,7 @@ const handleSpinClick = () => {
       뭐 먹을지 고민될 땐, <br />
       Mamma
     </div>
-    <SpinButtonVue @spinClicked="handleSpinClick" />
+    <SpinButtonVue @click="() => emit('spinClicked')" />
   </main>
 </template>
 
