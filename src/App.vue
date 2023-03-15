@@ -26,7 +26,7 @@ const moveToNewResultPage = () => {
   router.push(`/result/${picked.id}`)
 }
 
-const setCategory = (event: MouseEvent, category: Categories) => {
+const setCategory = (category: Categories) => {
   if (filter.has(category)) filter.delete(category)
   else filter.add(category)
 }

@@ -8,7 +8,7 @@ const handleCategoryCick = (event: MouseEvent) => {
   const target = event.target as HTMLElement
 
   const selected = target.id
-  emit('categoryClicked', event, selected)
+  emit('categoryClicked', selected)
 
   target.classList.toggle('bg-gray-600')
   target.classList.toggle('bg-[#204FF5]')

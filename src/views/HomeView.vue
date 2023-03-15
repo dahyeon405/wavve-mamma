@@ -2,12 +2,9 @@
 import '@/components/Home/SpinButton.vue'
 import SpinButtonVue from '@/components/Home/SpinButton.vue'
 import HomeFilterVue from '@/components/Home/HomeFilter.vue'
+import type { Categories } from '@/types'
 
 const emit = defineEmits(['spinClicked', 'categoryClicked'])
-
-const handleCategoryCick = (event: MouseEvent, category: string) => {
-  emit('categoryClicked', event, category)
-}
 </script>
 
 <template>
@@ -16,7 +13,9 @@ const handleCategoryCick = (event: MouseEvent, category: string) => {
       뭐 먹을지 고민될 땐, <br />
       Mamma
     </div>
-    <HomeFilterVue @categoryClicked="handleCategoryCick"></HomeFilterVue>
+    <HomeFilterVue
+      @categoryClicked="(category: Categories) => emit('categoryClicked', category)"
+    ></HomeFilterVue>
     <SpinButtonVue @click="() => emit('spinClicked')" />
   </main>
 </template>
