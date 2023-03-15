@@ -15,7 +15,7 @@ const handleCategoryCick = (event: MouseEvent) => {
 
 <template>
   <div class="flex justify-center my-10">
-    <div class="flex flex-wrap gap-x-3 w-5/6 gap-y-3 justify-center" ref="">
+    <div class="flex flex-wrap gap-x-3 w-5/6 gap-y-3 justify-center">
       <div
         v-for="(category, index) in CATEGORY"
         :key="index"
