@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import '@/components/Home/SpinButton.vue'
 import SpinButtonVue from '@/components/Home/SpinButton.vue'
-import type { IRestaurantData } from '@/types/interface'
-import { useRouter } from 'vue-router'
-import CATEGORY from '@/types/const'
+import HomeFilterVue from '@/components/Home/HomeFilter.vue'
 
-const router = useRouter()
-const selectedCategories = [...CATEGORY]
-const emit = defineEmits(['spinClicked'])
+const emit = defineEmits(['spinClicked', 'categoryClicked'])
 
-const props = defineProps<{
-  data: IRestaurantData[]
-}>()
+const handleCategoryCick = (event: MouseEvent, category: string) => {
+  emit('categoryClicked', event, category)
+}
 </script>
 
 <template>
@@ -20,6 +16,7 @@ const props = defineProps<{
       뭐 먹을지 고민될 땐, <br />
       Mamma
     </div>
+    <HomeFilterVue @categoryClicked="handleCategoryCick"></HomeFilterVue>
     <SpinButtonVue @click="() => emit('spinClicked')" />
   </main>
 </template>

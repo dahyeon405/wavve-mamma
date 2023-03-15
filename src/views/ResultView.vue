@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { IRestaurantData } from '@/types/interface'
-import { randomPicker } from '@/utils/randomPicker'
+import type { RestaurantData } from '@/types'
 import { useRouter, useRoute } from 'vue-router'
 import { ref, computed, watch } from 'vue'
 
@@ -8,7 +7,7 @@ const route = useRoute()
 const router = useRouter()
 
 const props = defineProps<{
-  data: IRestaurantData[]
+  data: RestaurantData[]
 }>()
 
 const emit = defineEmits(['spinClicked'])
