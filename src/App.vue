@@ -2,6 +2,7 @@
 import { ref, reactive } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
 import type { Categories, RestaurantData } from '@/types'
+import NavigationBarVue from './components/NavigationBar.vue'
 import { getCandidateRestaurant, getRandomRestaurant } from '@/utils/randomPicker'
 import CATEGORY from '@/consts/CATEGORY'
 
@@ -33,7 +34,8 @@ const setCategory = (category: Categories) => {
 </script>
 
 <template>
-  <div class="main-wrapper">
+  <div class="w-[400px] m-auto border h-full flex flex-column">
+    <NavigationBarVue></NavigationBarVue>
     <div v-if="isLoading">로딩 중...</div>
     <RouterView
       v-else
@@ -43,13 +45,3 @@ const setCategory = (category: Categories) => {
     />
   </div>
 </template>
-
-<style scoped>
-.main-wrapper {
-  width: 400px;
-  margin: 0 auto;
-  border: 1px solid grey;
-  height: 100%;
-  padding: 10px;
-}
-</style>
