@@ -8,7 +8,7 @@ const emit = defineEmits(['spinClicked', 'categoryClicked'])
 </script>
 
 <template>
-  <main class="main-home">
+  <main class="flex flex-col justify-center">
     <div class="text-lg text-center font-bold my-10">
       뭐 먹을지 고민될 땐, <br />
       Mamma
@@ -19,11 +19,3 @@ const emit = defineEmits(['spinClicked', 'categoryClicked'])
     <SpinButtonVue @click="() => emit('spinClicked')" />
   </main>
 </template>
-
-<style>
-.main-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-</style>
