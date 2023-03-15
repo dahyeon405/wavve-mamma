@@ -1,7 +1,7 @@
-import type { IRestaurantData } from '@/types/interface'
-import CATEGORY from '@/types/const'
+import type { RestaurantData } from '@/types/inde'
+import CATEGORY from '@/consts/CATEGORY'
 
-const parseDataByCategories = (data: IRestaurantData[]) => {
+const parseDataByCategories = (data: RestaurantData[]) => {
   const dataMap = new Map()
 
   data.forEach((el) => {
