@@ -9,10 +9,7 @@ const emit = defineEmits(['spinClicked', 'categoryClicked'])
 
 <template>
   <main class="flex flex-col justify-center">
-    <div class="text-lg text-center font-bold my-10">
-      뭐 먹을지 고민될 땐, <br />
-      Mamma
-    </div>
+    <div class="text-lg text-center font-bold my-10">포함할 카테고리를 선택하세요.</div>
     <HomeFilterVue
       @categoryClicked="(category: Categories) => emit('categoryClicked', category)"
     ></HomeFilterVue>
