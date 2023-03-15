@@ -5,7 +5,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-sky-500 h-12 w-5/6 mx-auto my-5 rounded-lg text-white text-lg font-bold hover:bg-sky-700;
+    @apply border-solid border border-gray-700 h-12 w-5/6 mx-auto my-5 rounded-lg text-gray-700 text-lg font-bold hover:bg-gray-100;
   }
 }
 
